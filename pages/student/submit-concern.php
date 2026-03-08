@@ -1,12 +1,12 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 // Security Check: Siguraduhon nga naka-login ang student
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -31,9 +31,9 @@ $display_initials = substr($initials, 0, 1);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Concern - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/submit-concern-form-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/submit-concern-form-styles.css">
     
 </head>
 <body>
@@ -53,11 +53,11 @@ $display_initials = substr($initials, 0, 1);
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">Submit a Concern</span>
             </div>
             <div class="header-right">
-                <button class="btn-back" onclick="window.location.href='student-dashboard.php'">
+                <button class="btn-back" onclick="window.location.href='dashboard.php'">
                     ← Back to Dashboard
                 </button>
                 <div class="user-profile">
@@ -164,7 +164,7 @@ $display_initials = substr($initials, 0, 1);
                         <!-- END FILE ATTACHMENT SECTION -->
 
                         <div class="form-actions">
-                            <button type="button" class="btn-secondary" onclick="window.location.href='student-dashboard.php'">Cancel</button>
+                            <button type="button" class="btn-secondary" onclick="window.location.href='dashboard.php'">Cancel</button>
                             <button type="submit" id="submitBtn" class="btn-submit">Submit Concern</button>
                         </div>
                     </form>
@@ -190,6 +190,6 @@ $display_initials = substr($initials, 0, 1);
     </div>
 
 
-    <script src="js/submit-concern-form.js"></script>
+    <script src="../../js/submit-concern-form.js"></script>
 </body>
 </html>

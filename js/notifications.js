@@ -45,7 +45,7 @@
                 list.innerHTML = '<div class="notif-empty">Loading...</div>';
                 
                 try {
-                    const response = await fetch('api/get-notifications.php?limit=10', {
+                    const response = await fetch('../../api/get-notifications.php?limit=10', {
                         method: 'GET',
                         credentials: 'same-origin'
                     });
@@ -108,7 +108,7 @@
                     const formData = new FormData();
                     formData.append('mark_all', 'true');
                     
-                    await fetch('api/mark-notification-read.php', {
+                    await fetch('../../api/mark-notification-read.php', {
                         method: 'POST',
                         body: formData,
                         credentials: 'same-origin'
@@ -132,7 +132,7 @@
             // Initial badge count
             async function fetchBadgeCount() {
                 try {
-                    const response = await fetch('api/get-notifications.php?limit=1', {
+                    const response = await fetch('../../api/get-notifications.php?limit=1', {
                         credentials: 'same-origin'
                     });
                     const data = await response.json();
@@ -157,7 +157,7 @@
             if (isRead == 0) {
                 const formData = new FormData();
                 formData.append('notification_id', id);
-                await fetch('api/mark-notification-read.php', {
+                await fetch('../../api/mark-notification-read.php', {
                     method: 'POST',
                     body: formData,
                     credentials: 'same-origin'

@@ -18,7 +18,7 @@ var allConcerns = [];
 
     function loadMyConcerns() {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'api/get-my-concerns.php', true);
+        xhr.open('GET', '../../api/get-my-concerns.php', true);
         xhr.onload = function() {
             if (xhr.status === 200) {
                 try {
@@ -81,7 +81,7 @@ var allConcerns = [];
         formData.append('tracking_id', trackingId);
         
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'api/delete-concern.php', true);
+        xhr.open('POST', '../../api/delete-concern.php', true);
         xhr.onload = function() {
             try {
                 var data = JSON.parse(xhr.responseText);

@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['full_name'])) {
     
     if (mysqli_query($conn, $sql)) {
         $_SESSION['name'] = $full_name; // I-update ang session para sa header initials
-        header('Location: student-dashboard.php');
+        header('Location: pages/student/dashboard.php');
         exit;
     } else {
         $error_msg = "Error updating profile: " . mysqli_error($conn);

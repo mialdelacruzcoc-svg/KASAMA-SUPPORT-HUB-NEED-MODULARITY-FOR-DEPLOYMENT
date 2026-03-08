@@ -18,7 +18,7 @@
             formData.append('status', status);
             
             try {
-                const response = await fetch('api/update-appointment-status.php', { method: 'POST', body: formData });
+                const response = await fetch('../../api/update-appointment-status.php', { method: 'POST', body: formData });
                 const res = await response.json();
                 if(res.success) { 
                     alert('Status updated to ' + status); 
@@ -41,7 +41,7 @@
             formData.append('message', msg);
             
             try {
-                const response = await fetch('api/update-appointment-status.php', { method: 'POST', body: formData });
+                const response = await fetch('../../api/update-appointment-status.php', { method: 'POST', body: formData });
                 const res = await response.json();
                 if(res.success) { 
                     alert('Reschedule request sent!'); 

@@ -1,8 +1,8 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'coach') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -16,7 +16,7 @@ $result = mysqli_stmt_get_result($stmt);
 $coach = mysqli_fetch_assoc($result);
 
 if (!$coach) {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -54,9 +54,9 @@ if (!empty($coach['notification_prefs'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/coach-profile-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/coach-profile-styles.css">
     
 </head>
 <body>
@@ -66,7 +66,7 @@ if (!empty($coach['notification_prefs'])) {
                 <span class="nav-title">Kasama Support Hub</span>
             </div>
             <div class="nav-right">
-                <a href="api/logout.php" style="color:white; text-decoration:none; font-weight:bold;">Logout</a>
+                <a href="../../api/logout.php" style="color:white; text-decoration:none; font-weight:bold;">Logout</a>
             </div>
         </div>
     </nav>
@@ -74,12 +74,12 @@ if (!empty($coach['notification_prefs'])) {
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">My Profile</span>
             </div>
             <div class="header-right">
-                <button class="btn-back" onclick="window.location.href='coach-dashboard.php'">← Back to Dashboard</button>
-                <?php include 'includes/profile-dropdown.php'; ?>
+                <button class="btn-back" onclick="window.location.href='dashboard.php'">← Back to Dashboard</button>
+                <?php include '../../includes/profile-dropdown.php'; ?>
             </div>
         </header>
 
@@ -211,6 +211,6 @@ if (!empty($coach['notification_prefs'])) {
     <div class="toast" id="toast"></div>
 
 
-    <script src="js/coach-profile.js"></script>
+    <script src="../../js/coach-profile.js"></script>
 </body>
 </html>

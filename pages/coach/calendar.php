@@ -1,8 +1,8 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'coach') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -14,9 +14,9 @@ $coach_name = $_SESSION['name'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Calendar - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/coach-calendar-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/coach-calendar-styles.css">
     
 </head>
 <body>
@@ -24,7 +24,7 @@ $coach_name = $_SESSION['name'];
         <div class="nav-content">
             <div class="nav-left"><span class="nav-title">Kasama Support Hub</span></div>
             <div class="nav-right">
-                <a href="api/logout.php" style="color:white; text-decoration:none; font-weight:bold; font-size:13px;">Logout</a>
+                <a href="../../api/logout.php" style="color:white; text-decoration:none; font-weight:bold; font-size:13px;">Logout</a>
             </div>
         </div>
     </nav>
@@ -32,12 +32,12 @@ $coach_name = $_SESSION['name'];
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo" style="width:36px; height:36px;">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo" style="width:36px; height:36px;">
                 <span class="header-title" style="font-size:15px; font-weight:600;">Calendar Management</span>
             </div>
             <div class="header-right">
-                <button class="btn-secondary" onclick="window.location.href='coach-dashboard.php'">← Back</button>
-                <button class="btn-secondary" onclick="window.location.href='coach-appointments.php'">📋 Appointments</button>
+                <button class="btn-secondary" onclick="window.location.href='dashboard.php'">← Back</button>
+                <button class="btn-secondary" onclick="window.location.href='appointments.php'">📋 Appointments</button>
             </div>
         </header>
 
@@ -134,7 +134,7 @@ $coach_name = $_SESSION['name'];
         const end = endDate.toISOString().split('T')[0];
         
         try {
-            const response = await fetch(`api/manage-availability.php?action=get&start=${start}&end=${end}`);
+            const response = await fetch(`../../api/manage-availability.php?action=get&start=${start}&end=${end}`);
             const result = await response.json();
             
             if (result.success) {
@@ -296,7 +296,7 @@ $coach_name = $_SESSION['name'];
         formData.append('notes', notes);
         
         try {
-            const response = await fetch('api/manage-availability.php', { method: 'POST', body: formData });
+            const response = await fetch('../../api/manage-availability.php', { method: 'POST', body: formData });
             const result = await response.json();
             
             if (result.success) {
@@ -319,7 +319,7 @@ $coach_name = $_SESSION['name'];
         formData.append('notes', 'Day blocked');
         
         try {
-            const response = await fetch('api/manage-availability.php', { method: 'POST', body: formData });
+            const response = await fetch('../../api/manage-availability.php', { method: 'POST', body: formData });
             const result = await response.json();
             
             if (result.success) {
@@ -340,7 +340,7 @@ $coach_name = $_SESSION['name'];
         formData.append('date', date);
         
         try {
-            const response = await fetch('api/manage-availability.php', { method: 'POST', body: formData });
+            const response = await fetch('../../api/manage-availability.php', { method: 'POST', body: formData });
             const result = await response.json();
             
             if (result.success) {

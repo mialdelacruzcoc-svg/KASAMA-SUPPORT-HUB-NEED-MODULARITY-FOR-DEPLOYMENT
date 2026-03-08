@@ -91,7 +91,7 @@ filteredConcerns = allConcerns.filter(concern => {
     }
 
     function loadConcerns() {
-        fetch('api/get-concerns.php')
+        fetch('../../api/get-concerns.php')
             .then(response => response.json())
             .then(data => {
                 console.log('Concerns API response:', data);

@@ -318,7 +318,7 @@ document.addEventListener('click', function(e) {
 // Load notifications
 async function loadNotifications() {
     try {
-        const response = await fetch('api/get-notifications.php?limit=10');
+        const response = await fetch('/api/get-notifications.php?limit=10');
         const result = await response.json();
         
         if (result.success) {
@@ -376,7 +376,7 @@ async function markAsRead(id) {
         const formData = new FormData();
         formData.append('notification_id', id);
         
-        await fetch('api/mark-notification-read.php', {
+        await fetch('/api/mark-notification-read.php', {
             method: 'POST',
             body: formData
         });
@@ -394,7 +394,7 @@ async function markAllAsRead() {
         const formData = new FormData();
         formData.append('mark_all', 'true');
         
-        await fetch('api/mark-notification-read.php', {
+        await fetch('/api/mark-notification-read.php', {
             method: 'POST',
             body: formData
         });
@@ -421,7 +421,7 @@ function updateBadge(count) {
 // Fetch unread count only (for badge updates)
 async function fetchUnreadCount() {
     try {
-        const response = await fetch('api/get-notifications.php?limit=1');
+        const response = await fetch('/api/get-notifications.php?limit=1');
         const result = await response.json();
         
         if (result.success) {

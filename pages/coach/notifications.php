@@ -1,8 +1,8 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'coach') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -34,9 +34,9 @@ $total_count = mysqli_fetch_assoc($total_result)['count'] ?? 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notifications - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/coach-notifications-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/coach-notifications-styles.css">
     
 </head>
 <body>
@@ -44,7 +44,7 @@ $total_count = mysqli_fetch_assoc($total_result)['count'] ?? 0;
         <div class="nav-content">
             <div class="nav-left"><span class="nav-title">Kasama Support Hub</span></div>
             <div class="nav-right">
-                <a href="api/logout.php" style="color:white; text-decoration:none; font-weight:bold;">Logout</a>
+                <a href="../../api/logout.php" style="color:white; text-decoration:none; font-weight:bold;">Logout</a>
             </div>
         </div>
     </nav>
@@ -52,12 +52,12 @@ $total_count = mysqli_fetch_assoc($total_result)['count'] ?? 0;
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">All Notifications</span>
             </div>
             <div class="header-right">
-                <button class="btn-back" onclick="window.location.href='coach-dashboard.php'">← Back to Dashboard</button>
-                <?php include 'includes/profile-dropdown.php'; ?>
+                <button class="btn-back" onclick="window.location.href='dashboard.php'">← Back to Dashboard</button>
+                <?php include '../../includes/profile-dropdown.php'; ?>
             </div>
         </header>
 
@@ -129,7 +129,7 @@ endif; ?>
     </div>
 
 
-    <script src="js/notifications.js"></script>
-    <script src="js/coach-notifications.js"></script>
+    <script src="../../js/notifications.js"></script>
+    <script src="../../js/coach-notifications.js"></script>
 </body>
 </html>

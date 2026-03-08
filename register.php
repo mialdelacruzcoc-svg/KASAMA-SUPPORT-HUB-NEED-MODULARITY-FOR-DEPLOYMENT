@@ -2,7 +2,7 @@
 session_start();
 // Redirect kung naka-login na
 if (isset($_SESSION['user_id'])) {
-    $redirect = ($_SESSION['role'] === 'coach') ? 'coach-dashboard.php' : 'student-dashboard.php';
+    $redirect = ($_SESSION['role'] === 'coach') ? 'pages/coach/dashboard.php' : 'pages/student/dashboard.php';
     header('Location: ' . $redirect);
     exit;
 }

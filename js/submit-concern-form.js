@@ -120,7 +120,7 @@
             
             try {
                 // Step 1: Submit the concern first
-                const response = await fetch('api/submit-concern.php', { 
+                const response = await fetch('../../api/submit-concern.php', { 
                     method: 'POST', 
                     body: formData 
                 });
@@ -145,7 +145,7 @@
                             fileFormData.append('concern_id', concernId);
                             
                             try {
-                                const uploadResponse = await fetch('api/upload-attachment.php', {
+                                const uploadResponse = await fetch('../../api/upload-attachment.php', {
                                     method: 'POST',
                                     body: fileFormData
                                 });
@@ -172,7 +172,7 @@
                         alert(`✅ Success!\n\nTracking ID: ${trackingId}`);
                     }
                     
-                    window.location.href = 'student-dashboard.php';
+                    window.location.href = 'dashboard.php';
                     
                 } else {
                     alert('❌ Error: ' + result.message);

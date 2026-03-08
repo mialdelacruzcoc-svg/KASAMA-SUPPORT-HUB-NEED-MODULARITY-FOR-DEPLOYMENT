@@ -39,7 +39,7 @@ if ($user = mysqli_fetch_assoc($result)) {
         $_SESSION['email'] = $user['email'];  // ✅ ADDED
         $_SESSION['role'] = $user['role'];
 
-        $redirect = ($user['role'] === 'coach') ? 'coach-dashboard.php' : 'student-dashboard.php';
+        $redirect = ($user['role'] === 'coach') ? 'pages/coach/dashboard.php' : 'pages/student/dashboard.php';
 
         send_json_response(true, 'Login successful', [
             'redirect' => $redirect,

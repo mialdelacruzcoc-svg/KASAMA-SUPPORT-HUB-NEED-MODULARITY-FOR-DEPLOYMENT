@@ -115,8 +115,8 @@ $pdi_coach_name = $_SESSION['name'] ?? 'Coach';
             <div class="dropdown-name">Coach <?php echo htmlspecialchars($pdi_coach_name); ?></div>
             <div class="dropdown-role">Guidance Coach</div>
         </div>
-        <a href="coach-profile.php" class="profile-dropdown-item">👤 My Profile</a>
-        <a href="api/logout.php" class="profile-dropdown-item logout">🚪 Logout</a>
+        <a href="/pages/coach/profile.php" class="profile-dropdown-item">👤 My Profile</a>
+        <a href="/api/logout.php" class="profile-dropdown-item logout">🚪 Logout</a>
     </div>
 </div>
 
