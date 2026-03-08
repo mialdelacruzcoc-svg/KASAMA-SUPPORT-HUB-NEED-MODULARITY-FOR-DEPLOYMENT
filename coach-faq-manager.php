@@ -15,34 +15,9 @@ $faqs = mysqli_query($conn, "SELECT * FROM faqs ORDER BY id DESC");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage FAQ - Coach Hannah</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .dashboard-header {
-            background: white;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 20px;
-        }
-        .header-left { display: flex; align-items: center; gap: 10px; }
-        .header-logo { height: 40px; }
-        .header-title { font-weight: bold; color: #333; font-size: 1.2rem; }
-        .btn-back-header {
-            text-decoration: none;
-            color: #666;
-            font-weight: 600;
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #f9f9f9;
-        }
-        .admin-card { background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .faq-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .faq-table th, .faq-table td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }
-        .btn-delete { background: #d93025; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
-        .input-group label { display: block; margin-bottom: 5px; font-weight: 600; color: #444; }
-    </style>
+    <link rel="stylesheet" href="css/shared-styles.css">
+    <link rel="stylesheet" href="css/coach-faq-manager-styles.css">
+    
 </head>
 <body style="background:#f4f7f6; margin: 0; padding: 0;">
 
@@ -109,50 +84,7 @@ $faqs = mysqli_query($conn, "SELECT * FROM faqs ORDER BY id DESC");
         </div>
     </div>
 
-    <script>
-        // ADD FAQ AJAX
-        document.getElementById('addFaqForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const originalText = btn.textContent;
-            btn.textContent = 'Publishing...';
-            btn.disabled = true;
 
-            const formData = new FormData(e.target);
-            try {
-                const res = await fetch('api/manage-faq.php', { method: 'POST', body: formData });
-                const data = await res.json();
-                if(data.success) { 
-                    location.reload(); 
-                } else { 
-                    alert('Error: ' + data.message); 
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                }
-            } catch (err) {
-                alert('Connection error.');
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }
-        });
-
-        // DELETE FAQ AJAX
-        async function deleteFaq(id) {
-            if(confirm('Sigurado ka i-delete kini? Kini mahanaw sab sa FAQ page sa mga estudyante.')) {
-                const formData = new FormData();
-                formData.append('action', 'delete');
-                formData.append('id', id);
-                try {
-                    const res = await fetch('api/manage-faq.php', { method: 'POST', body: formData });
-                    const data = await res.json();
-                    if(data.success) { 
-                        location.reload(); 
-                    }
-                } catch (err) {
-                    alert('Failed to delete.');
-                }
-            }
-        }
-    </script>
+    <script src="js/coach-faq-manager.js"></script>
 </body>
 </html>
