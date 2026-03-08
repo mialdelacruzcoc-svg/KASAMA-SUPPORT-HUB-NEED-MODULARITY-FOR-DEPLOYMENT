@@ -19,6 +19,7 @@ $concerns_result = mysqli_query($conn, $concerns_query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Appointment - Kasama Support Hub</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/shared-styles.css">
     <link rel="stylesheet" href="css/book-appointment-styles.css">
     
 </head>
