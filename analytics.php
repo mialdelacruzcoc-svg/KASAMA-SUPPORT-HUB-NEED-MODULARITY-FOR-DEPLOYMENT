@@ -154,7 +154,7 @@ while ($row = mysqli_fetch_assoc($hourly_result)) {
                 <span class="header-title">Analytics Dashboard</span>
             </div>
             <div class="header-right">
-                <button class="btn-back" onclick="window.location.href='coach-dashboard.php'">← Back to Dashboard</button>
+                <button class="btn-back" onclick="window.location.href='pages/coach/dashboard.php'">← Back to Dashboard</button>
                 <?php include 'includes/profile-dropdown.php'; ?>
             </div>
         </header>

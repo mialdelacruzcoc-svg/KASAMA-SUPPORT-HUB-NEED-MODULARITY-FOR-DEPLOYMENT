@@ -70,7 +70,7 @@
 
         const offset = currentPage * ITEMS_PER_PAGE;
         
-        fetch(`api/get-notifications-page.php?filter=${currentFilter}&limit=${ITEMS_PER_PAGE}&offset=${offset}`)
+        fetch(`../../api/get-notifications-page.php?filter=${currentFilter}&limit=${ITEMS_PER_PAGE}&offset=${offset}`)
             .then(response => response.json())
             .then(data => {
                 isLoading = false;
@@ -163,7 +163,7 @@
     // Open notification
     function openNotification(id, link) {
         // Mark as read first
-        fetch('api/mark-notification-read.php', {
+        fetch('../../api/mark-notification-read.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `id=${id}`
@@ -187,7 +187,7 @@
 
     // Mark single as read
     function markAsRead(id) {
-        fetch('api/mark-notification-read.php', {
+        fetch('../../api/mark-notification-read.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `id=${id}`
@@ -212,7 +212,7 @@
     function markAllAsRead() {
         if (!confirm('Mark all notifications as read?')) return;
         
-        fetch('api/mark-all-notifications-read.php', { method: 'POST' })
+        fetch('../../api/mark-all-notifications-read.php', { method: 'POST' })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -232,7 +232,7 @@
     function deleteNotification(id) {
         if (!confirm('Delete this notification?')) return;
         
-        fetch('api/delete-notification.php', {
+        fetch('../../api/delete-notification.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `id=${id}`
@@ -255,7 +255,7 @@
     function deleteAllRead() {
         if (!confirm('Delete all read notifications? This cannot be undone.')) return;
         
-        fetch('api/delete-read-notifications.php', { method: 'POST' })
+        fetch('../../api/delete-read-notifications.php', { method: 'POST' })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -299,7 +299,7 @@
     function markSelectedAsRead() {
         const ids = Array.from(selectedIds);
         
-        fetch('api/mark-notifications-read-bulk.php', {
+        fetch('../../api/mark-notifications-read-bulk.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ids })
@@ -326,7 +326,7 @@
         
         const ids = Array.from(selectedIds);
         
-        fetch('api/delete-notifications-bulk.php', {
+        fetch('../../api/delete-notifications-bulk.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ids })
@@ -346,7 +346,7 @@
 
     // Update counts
     function updateCounts() {
-        fetch('api/get-notification-counts.php')
+        fetch('../../api/get-notification-counts.php')
             .then(response => response.json())
             .then(data => {
                 if (data.success) {

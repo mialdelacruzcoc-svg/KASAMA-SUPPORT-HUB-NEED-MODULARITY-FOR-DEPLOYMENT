@@ -1,8 +1,8 @@
     <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'coach') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -34,9 +34,9 @@ $appointments_result = mysqli_query($conn, $apt_query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coach Dashboard - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/coach-dashboard-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/coach-dashboard-styles.css">
     
 </head>
 <body>
@@ -47,7 +47,7 @@ $appointments_result = mysqli_query($conn, $apt_query);
                 <span class="nav-title">Kasama Support Hub</span>
             </div>
             <div class="nav-right">
-                <a href="api/logout.php" class="nav-logout-link">Logout</a>
+                <a href="../../api/logout.php" class="nav-logout-link">Logout</a>
             </div>
         </div>
     </nav>
@@ -55,7 +55,7 @@ $appointments_result = mysqli_query($conn, $apt_query);
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">Coach Dashboard</span>
             </div>
             <div class="header-right">
@@ -74,7 +74,7 @@ $appointments_result = mysqli_query($conn, $apt_query);
                             <div class="notif-empty">Loading...</div>
                         </div>
                         <!-- VIEW ALL LINK -->
-                        <a href="coach-notifications.php" class="notif-footer">
+                        <a href="notifications.php" class="notif-footer">
                             View All Notifications →
                         </a>
                     </div>
@@ -82,7 +82,7 @@ $appointments_result = mysqli_query($conn, $apt_query);
                 <!-- END NOTIFICATION BELL -->
                 
                 <div class="user-profile-wrapper" id="profileWrapper">
-                    <?php include 'includes/profile-dropdown.php'; ?>
+                    <?php include '../../includes/profile-dropdown.php'; ?>
                 </div>
             </div>
         </header>
@@ -114,12 +114,12 @@ $appointments_result = mysqli_query($conn, $apt_query);
             </div>
 
             <div class="quick-actions-grid">
-                <button class="btn-submit" onclick="window.location.href='coach-appointments.php'">Manage Appointments</button>
-                <button class="btn-submit" onclick="window.location.href='coach-faq-manager.php'">Manage FAQ Hub</button>
-                <button class="btn-submit" onclick="window.location.href='concerns-table.php'">View All Concerns</button>
-                <button class="btn-submit" onclick="window.location.href='analytics.php'">View Detailed Analytics</button>
-                <button class="btn-submit" onclick="window.location.href='coach-notifications.php'">All Notifications</button>
-                <button class="btn-submit" onclick="window.location.href='coach-calendar.php'">Manage Calendar</button>
+                <button class="btn-submit" onclick="window.location.href='appointments.php'">Manage Appointments</button>
+                <button class="btn-submit" onclick="window.location.href='faq-manager.php'">Manage FAQ Hub</button>
+                <button class="btn-submit" onclick="window.location.href='../shared/concerns-table.php'">View All Concerns</button>
+                <button class="btn-submit" onclick="window.location.href='../../analytics.php'">View Detailed Analytics</button>
+                <button class="btn-submit" onclick="window.location.href='notifications.php'">All Notifications</button>
+                <button class="btn-submit" onclick="window.location.href='calendar.php'">Manage Calendar</button>
             </div>
 
             <div class="analytics-section">
@@ -195,7 +195,7 @@ endif; ?>
                                     <td><?php echo $row['student_id']; ?></td>
                                     <td><?php echo $row['pending_count']; ?></td>
                                     <td><?php echo date('M d, Y', strtotime($row['last_date'])); ?></td>
-                                    <td><button class="btn-action" onclick="window.location.href='concerns-table.php'">Review</button></td>
+                                    <td><button class="btn-action" onclick="window.location.href='../shared/concerns-table.php'">Review</button></td>
                                 </tr>
                                 <?php
     endwhile; ?>
@@ -225,7 +225,7 @@ endif; ?>
     </div>
 
 
-    <script src="js/notifications.js"></script>
-    <script src="js/coach-dashboard.js"></script>
+    <script src="../../js/notifications.js"></script>
+    <script src="../../js/coach-dashboard.js"></script>
 </body>
 </html>

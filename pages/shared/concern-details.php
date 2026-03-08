@@ -1,8 +1,8 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -26,7 +26,7 @@ $result = mysqli_query($conn, $query);
 $concern = mysqli_fetch_assoc($result);
 
 if (!$concern) {
-    $redirect = ($user_role === 'coach') ? 'concerns-table.php' : 'student-dashboard.php';
+    $redirect = ($user_role === 'coach') ? 'concerns-table.php' : '../student/dashboard.php';
     echo "<script>alert('Concern not found!'); window.location.href='$redirect';</script>";
     exit;
 }
@@ -65,30 +65,30 @@ $display_id = ($concern['is_anonymous'] == 1) ? "---" : $concern['student_id'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Concern Details - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/concern-details-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/concern-details-styles.css">
     
 </head>
 <body>
     <nav class="top-nav">
         <div class="nav-content">
             <div class="nav-left"><span class="nav-title">Kasama Support Hub</span></div>
-            <div class="nav-right"><a href="api/logout.php" style="color:white; text-decoration:none; font-weight:bold;">Logout</a></div>
+            <div class="nav-right"><a href="../../api/logout.php" style="color:white; text-decoration:none; font-weight:bold;">Logout</a></div>
         </div>
     </nav>
 
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">Concern Details</span>
             </div>
             <div class="header-right">
                 <?php if ($user_role === 'coach'): ?>
                     <button class="btn-back" onclick="window.location.href='concerns-table.php'">← Back to Table</button>
                 <?php else: ?>
-                    <button class="btn-back" onclick="window.location.href='student-dashboard.php'">← Back to Dashboard</button>
+                    <button class="btn-back" onclick="window.location.href='../student/dashboard.php'">← Back to Dashboard</button>
                 <?php endif; ?>
                 <div class="user-profile">
                     <div class="user-avatar"><?php echo $display_initials; ?></div>
@@ -371,7 +371,7 @@ function submitCoachResponse() {
         formData.append('attachment', file);
     }
 
-    fetch('api/submit-response.php', { method: 'POST', body: formData })
+    fetch('../../api/submit-response.php', { method: 'POST', body: formData })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -473,7 +473,7 @@ function submitStudentReply() {
         formData.append('attachment', file);
     }
 
-    fetch('api/submit-student-reply.php', { method: 'POST', body: formData })
+    fetch('../../api/submit-student-reply.php', { method: 'POST', body: formData })
         .then(response => response.json())
         .then(data => {
             if (data.success) {

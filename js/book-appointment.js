@@ -49,7 +49,7 @@ let selectedDate = null;
             document.getElementById('bookingForm').style.display = 'none';
             selectedTime = null;
 
-            fetch('api/get-blocked-slots.php?date=' + selectedDate)
+            fetch('../../api/get-blocked-slots.php?date=' + selectedDate)
                 .then(r => r.json())
                 .then(data => {
                     const blocked = data.blocked || [];
@@ -100,11 +100,11 @@ let selectedDate = null;
             formData.append('linked_concern', document.getElementById('linkConcern').value);
 
             try {
-                const response = await fetch('api/save-appointment.php', { method: 'POST', body: formData });
+                const response = await fetch('../../api/save-appointment.php', { method: 'POST', body: formData });
                 const result = await response.json();
                 if (result.success) {
                     alert('✅ Appointment successfully booked!');
-                    window.location.href = 'student-dashboard.php';
+                    window.location.href = 'dashboard.php';
                 } else { alert('❌ ' + result.message); }
             } catch (e) { alert('System error occurred.'); }
         }

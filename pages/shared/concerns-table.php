@@ -1,9 +1,9 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 // Security check
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'coach') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -15,9 +15,9 @@ $coach_name = $_SESSION['name'] ?? 'Coach';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Concerns - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/concerns-table-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/concerns-table-styles.css">
     
 </head>
 <body>
@@ -28,7 +28,7 @@ $coach_name = $_SESSION['name'] ?? 'Coach';
                 <span class="nav-title">Kasama Support Hub</span>
             </div>
             <div class="nav-right" style="display: flex; align-items: center; gap: 15px;">
-                <a href="api/logout.php" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: bold;">Logout</a>
+                <a href="../../api/logout.php" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: bold;">Logout</a>
             </div>
         </div>
     </nav>
@@ -36,11 +36,11 @@ $coach_name = $_SESSION['name'] ?? 'Coach';
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">All Student Concerns</span>
             </div>
             <div class="header-right">
-                <button class="btn-back" onclick="window.location.href='coach-dashboard.php'">← Back to Dashboard</button>
+                <button class="btn-back" onclick="window.location.href='../coach/dashboard.php'">← Back to Dashboard</button>
                 
                 <!-- NOTIFICATION BELL -->
                 <div class="notif-wrapper">
@@ -60,7 +60,7 @@ $coach_name = $_SESSION['name'] ?? 'Coach';
                 </div>
                 <!-- END NOTIFICATION BELL -->
                 
-                <?php include 'includes/profile-dropdown.php'; ?>
+                <?php include '../../includes/profile-dropdown.php'; ?>
             </div>
         </header>
 
@@ -144,7 +144,7 @@ $coach_name = $_SESSION['name'] ?? 'Coach';
     </div>
 
 
-    <script src="js/notifications.js"></script>
-    <script src="js/concerns-table.js"></script>
+    <script src="../../js/notifications.js"></script>
+    <script src="../../js/concerns-table.js"></script>
 </body>
 </html>

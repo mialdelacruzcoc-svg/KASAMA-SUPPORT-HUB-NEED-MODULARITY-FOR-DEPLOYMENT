@@ -1,5 +1,5 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Security Check
 if (!isset($_SESSION['user_id'])) {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -32,9 +32,9 @@ while ($row = mysqli_fetch_assoc($faqs_result)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/faq-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/faq-styles.css">
     
 </head>
 <body>
@@ -42,7 +42,7 @@ while ($row = mysqli_fetch_assoc($faqs_result)) {
         <div class="nav-content">
             <div class="nav-left"><span class="nav-title">Kasama Support Hub</span></div>
             <div class="nav-right">
-                <a href="api/logout.php" style="color:white; text-decoration:none; font-weight:bold; font-size:13px;">Logout</a>
+                <a href="../../api/logout.php" style="color:white; text-decoration:none; font-weight:bold; font-size:13px;">Logout</a>
             </div>
         </div>
     </nav>
@@ -50,11 +50,11 @@ while ($row = mysqli_fetch_assoc($faqs_result)) {
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo" style="width:36px; height:36px;">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo" style="width:36px; height:36px;">
                 <span class="header-title" style="font-size:15px; font-weight:600;">Help Center</span>
             </div>
             <div class="header-right">
-                <button class="btn-back" onclick="window.location.href='student-dashboard.php'">← Back</button>
+                <button class="btn-back" onclick="window.location.href='dashboard.php'">← Back</button>
             </div>
         </header>
 
@@ -152,7 +152,7 @@ endif; ?>
         try {
             const formData = new FormData();
             formData.append('faq_id', faqId);
-            await fetch('api/track-faq-view.php', { method: 'POST', body: formData });
+            await fetch('../../api/track-faq-view.php', { method: 'POST', body: formData });
         } catch (e) {
             console.log('View tracking failed');
         }

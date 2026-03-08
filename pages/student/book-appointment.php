@@ -1,8 +1,8 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -18,9 +18,9 @@ $concerns_result = mysqli_query($conn, $concerns_query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Appointment - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/book-appointment-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/book-appointment-styles.css">
     
 </head>
 <body>
@@ -31,7 +31,7 @@ $concerns_result = mysqli_query($conn, $concerns_query);
             </div>
             <div class="nav-right">
                 <button class="nav-icon">🔔</button>
-                <a href="api/logout.php" style="color: white; text-decoration: none; font-weight: bold; margin-left: 15px;">Logout</a>
+                <a href="../../api/logout.php" style="color: white; text-decoration: none; font-weight: bold; margin-left: 15px;">Logout</a>
             </div>
         </div>
     </nav>
@@ -39,11 +39,11 @@ $concerns_result = mysqli_query($conn, $concerns_query);
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">Book Appointment</span>
             </div>
             <div class="header-right">
-                <button class="btn-back" onclick="window.location.href='student-dashboard.php'">← Back</button>
+                <button class="btn-back" onclick="window.location.href='dashboard.php'">← Back</button>
                 <div class="user-profile">
                     <div class="user-avatar" style="background:#4a7c2c; color:white; display:flex; align-items:center; justify-content:center; width:35px; height:35px; border-radius:50%; font-weight:bold;">
                         <?php echo strtoupper(substr($student_name, 0, 1)); ?>
@@ -105,7 +105,7 @@ endwhile; ?>
                         </div>
 
                         <div style="display:flex; gap:12px; justify-content:flex-end; flex-wrap: wrap;">
-                            <button class="btn-secondary" onclick="window.location.href='student-dashboard.php'">Cancel</button>
+                            <button class="btn-secondary" onclick="window.location.href='dashboard.php'">Cancel</button>
                             <button class="btn-submit" onclick="confirmBooking()" style="background:#4a7c2c; color:white; border:none; padding:12px 24px; border-radius:8px; cursor:pointer;">Confirm Appointment</button>
                         </div>
                     </div>
@@ -126,6 +126,6 @@ endwhile; ?>
     </div>
 
 
-    <script src="js/book-appointment.js"></script>
+    <script src="../../js/book-appointment.js"></script>
 </body>
 </html>

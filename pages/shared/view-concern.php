@@ -1,8 +1,8 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -15,7 +15,7 @@ $result = mysqli_query($conn, $query);
 $concern = mysqli_fetch_assoc($result);
 
 if (!$concern) {
-    echo "<script>alert('Concern not found!'); window.location.href='my-concerns.php';</script>";
+    echo "<script>alert('Concern not found!'); window.location.href='../student/my-concerns.php';</script>";
     exit;
 }
 
@@ -51,27 +51,27 @@ $display_initials = substr($initials, 0, 2);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Concern - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/view-concern-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/view-concern-styles.css">
     
 </head>
 <body>
     <nav class="top-nav">
         <div class="nav-content">
             <div class="nav-left"><span class="nav-title">Kasama Support Hub</span></div>
-            <div class="nav-right"><a href="api/logout.php" style="color:white; text-decoration:none; font-weight:bold;">Logout</a></div>
+            <div class="nav-right"><a href="../../api/logout.php" style="color:white; text-decoration:none; font-weight:bold;">Logout</a></div>
         </div>
     </nav>
 
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">View Concern</span>
             </div>
             <div class="header-right">
-                <button class="btn-back" onclick="window.location.href='my-concerns.php'">← Back to My Concerns</button>
+                <button class="btn-back" onclick="window.location.href='../student/my-concerns.php'">← Back to My Concerns</button>
                 <div class="user-profile">
                     <div class="user-avatar"><?php echo $display_initials; ?></div>
                     <span class="user-name"><?php echo htmlspecialchars($student_name); ?></span>

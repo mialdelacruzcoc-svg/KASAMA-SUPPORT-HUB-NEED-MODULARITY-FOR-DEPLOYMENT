@@ -10,7 +10,7 @@
 
             const formData = new FormData(e.target);
             try {
-                const res = await fetch('api/manage-faq.php', { method: 'POST', body: formData });
+                const res = await fetch('../../api/manage-faq.php', { method: 'POST', body: formData });
                 const data = await res.json();
                 if(data.success) { 
                     location.reload(); 
@@ -33,7 +33,7 @@
                 formData.append('action', 'delete');
                 formData.append('id', id);
                 try {
-                    const res = await fetch('api/manage-faq.php', { method: 'POST', body: formData });
+                    const res = await fetch('../../api/manage-faq.php', { method: 'POST', body: formData });
                     const data = await res.json();
                     if(data.success) { 
                         location.reload(); 

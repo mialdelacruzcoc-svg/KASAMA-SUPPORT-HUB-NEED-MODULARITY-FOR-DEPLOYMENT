@@ -47,7 +47,7 @@
             formData.append('name', name);
             formData.append('email', email);
 
-            const response = await fetch('api/update-coach-profile.php', {
+            const response = await fetch('../../api/update-coach-profile.php', {
                 method: 'POST',
                 body: formData,
                 credentials: 'same-origin'
@@ -133,7 +133,7 @@
             formData.append('current_password', current);
             formData.append('new_password', newPass);
 
-            const response = await fetch('api/update-coach-password.php', {
+            const response = await fetch('../../api/update-coach-password.php', {
                 method: 'POST',
                 body: formData,
                 credentials: 'same-origin'
@@ -174,7 +174,7 @@
                 const formData = new FormData();
                 formData.append('prefs', JSON.stringify(prefs));
 
-                const response = await fetch('api/update-notification-prefs.php', {
+                const response = await fetch('../../api/update-notification-prefs.php', {
                     method: 'POST',
                     body: formData,
                     credentials: 'same-origin'

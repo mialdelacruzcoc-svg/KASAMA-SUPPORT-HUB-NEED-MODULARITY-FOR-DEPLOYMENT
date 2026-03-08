@@ -1,9 +1,9 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 // 1. Security Check
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -16,7 +16,7 @@ $result = mysqli_query($conn, $check_sql);
 if ($result) {
     $user_data = mysqli_fetch_assoc($result);
     if ($user_data && $user_data['is_profile_completed'] == 0) {
-        header('Location: setup-profile.php');
+        header('Location: ../../setup-profile.php');
         exit;
     }
 }
@@ -47,8 +47,8 @@ $appointments_list = mysqli_query($conn, "SELECT * FROM appointments WHERE stude
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
     <title>Student Dashboard - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/student-dashboard-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/student-dashboard-styles.css">
     
 </head>
 <body>
@@ -58,8 +58,8 @@ $appointments_list = mysqli_query($conn, "SELECT * FROM appointments WHERE stude
                 <span class="nav-title">Kasama Support Hub</span>
             </div>
             <div class="nav-right">
-                <?php include 'includes/notification-bell.php'; ?>
-                <a href="api/logout.php">Logout</a>
+                <?php include '../../includes/notification-bell.php'; ?>
+                <a href="../../api/logout.php">Logout</a>
             </div>
         </div>
     </nav>
@@ -67,7 +67,7 @@ $appointments_list = mysqli_query($conn, "SELECT * FROM appointments WHERE stude
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">Student Portal</span>
             </div>
             <div class="header-right">
@@ -96,7 +96,7 @@ $appointments_list = mysqli_query($conn, "SELECT * FROM appointments WHERE stude
                 <button class="btn-submit btn-primary-action" onclick="window.location.href='faq.php'">
                     ❓ Frequently Asked Questions
                 </button>
-                <button class="btn-submit" onclick="window.location.href='submit-concern-form.php'">
+                <button class="btn-submit" onclick="window.location.href='submit-concern.php'">
                     ➕ Submit New Concern
                 </button>
                 <button class="btn-submit" onclick="window.location.href='my-concerns.php'">
@@ -175,7 +175,7 @@ $appointments_list = mysqli_query($conn, "SELECT * FROM appointments WHERE stude
                     while($row = mysqli_fetch_assoc($concerns_list)): 
                         $status_class = strtolower(str_replace(' ', '-', $row['status']));
                 ?>
-                <div class="mobile-card" onclick="window.location.href='concern-details.php?id=<?php echo $row['tracking_id']; ?>'">
+                <div class="mobile-card" onclick="window.location.href='../shared/concern-details.php?id=<?php echo $row['tracking_id']; ?>'">
                     <div class="mobile-card-info">
                         <div class="mobile-card-title"><?php echo htmlspecialchars($row['subject']); ?></div>
                         <div class="mobile-card-subtitle">#<?php echo substr($row['tracking_id'], -6); ?> • <?php echo date('M d', strtotime($row['created_at'])); ?></div>
@@ -207,7 +207,7 @@ $appointments_list = mysqli_query($conn, "SELECT * FROM appointments WHERE stude
                         if(mysqli_num_rows($concerns_list) > 0): 
                             while($row = mysqli_fetch_assoc($concerns_list)): 
                         ?>
-                        <tr onclick="window.location.href='concern-details.php?id=<?php echo $row['tracking_id']; ?>'" class="clickable-row">
+                        <tr onclick="window.location.href='../shared/concern-details.php?id=<?php echo $row['tracking_id']; ?>'" class="clickable-row">
                             <td><span class="tracking-id">#<?php echo substr($row['tracking_id'], -6); ?></span></td>
                             <td><?php echo htmlspecialchars($row['subject']); ?></td>
                             <td><?php echo date('M d, Y', strtotime($row['created_at'])); ?></td>

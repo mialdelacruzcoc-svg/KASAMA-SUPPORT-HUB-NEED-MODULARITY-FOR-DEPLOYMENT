@@ -1,8 +1,8 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -23,9 +23,9 @@ $display_initials = substr($initials, 0, 2);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Concerns - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/my-concerns-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/my-concerns-styles.css">
     
 </head>
 <body>
@@ -35,7 +35,7 @@ $display_initials = substr($initials, 0, 2);
                 <span class="nav-title">Kasama Support Hub</span>
             </div>
             <div class="nav-right">
-                <a href="api/logout.php">Logout</a>
+                <a href="../../api/logout.php">Logout</a>
             </div>
         </div>
     </nav>
@@ -43,11 +43,11 @@ $display_initials = substr($initials, 0, 2);
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">My Concerns</span>
             </div>
             <div class="header-right">
-                <button class="btn-back" onclick="window.location.href='student-dashboard.php'">
+                <button class="btn-back" onclick="window.location.href='dashboard.php'">
                     ← Back
                 </button>
                 <div class="user-profile">
@@ -93,6 +93,6 @@ $display_initials = substr($initials, 0, 2);
     </div>
 
 
-    <script src="js/my-concerns.js"></script>
+    <script src="../../js/my-concerns.js"></script>
 </body>
 </html>

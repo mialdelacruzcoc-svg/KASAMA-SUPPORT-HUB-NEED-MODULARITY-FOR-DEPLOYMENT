@@ -1,8 +1,8 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
     if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'coach') { 
-    header('Location: index.php'); 
+    header('Location: ../../index.php'); 
     exit; 
 }
 
@@ -14,20 +14,20 @@ $faqs = mysqli_query($conn, "SELECT * FROM faqs ORDER BY id DESC");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage FAQ - Coach Hannah</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/coach-faq-manager-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/coach-faq-manager-styles.css">
     
 </head>
 <body style="background:#f4f7f6; margin: 0; padding: 0;">
 
     <header class="dashboard-header">
         <div class="header-left">
-            <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+            <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
             <span class="header-title">FAQ Control Center</span>
         </div>
         <div class="header-right">
-            <a href="coach-dashboard.php" class="btn-back-header">← Back to Dashboard</a>
+            <a href="dashboard.php" class="btn-back-header">← Back to Dashboard</a>
         </div>
     </header>
 
@@ -85,6 +85,6 @@ $faqs = mysqli_query($conn, "SELECT * FROM faqs ORDER BY id DESC");
     </div>
 
 
-    <script src="js/coach-faq-manager.js"></script>
+    <script src="../../js/coach-faq-manager.js"></script>
 </body>
 </html>

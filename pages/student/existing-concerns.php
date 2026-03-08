@@ -1,8 +1,8 @@
 <?php
-require_once 'api/config.php';
+require_once '../../api/config.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: index.php');
+    header('Location: ../../index.php');
     exit;
 }
 
@@ -34,9 +34,9 @@ $categories_result = mysqli_query($conn, $categories_query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Existing Concerns - Kasama Support Hub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shared-styles.css">
-    <link rel="stylesheet" href="css/existing-concerns-styles.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <link rel="stylesheet" href="../../css/existing-concerns-styles.css">
     
 </head>
 <body>
@@ -44,7 +44,7 @@ $categories_result = mysqli_query($conn, $categories_query);
         <div class="nav-content">
             <div class="nav-left"><span class="nav-title">Kasama Support Hub</span></div>
             <div class="nav-right">
-                <a href="api/logout.php" style="color:white; text-decoration:none; font-weight:bold;">Logout</a>
+                <a href="../../api/logout.php" style="color:white; text-decoration:none; font-weight:bold;">Logout</a>
             </div>
         </div>
     </nav>
@@ -52,16 +52,16 @@ $categories_result = mysqli_query($conn, $categories_query);
     <div class="dashboard-wrapper">
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/phinma-logo.png" alt="Logo" class="header-logo">
+                <img src="../../images/phinma-logo.png" alt="Logo" class="header-logo">
                 <span class="header-title">Existing Concerns</span>
             </div>
             <div class="header-right">
                 <?php if ($user_role === 'student'): ?>
-                    <button class="btn-back" onclick="window.location.href='student-dashboard.php'">← Back to Dashboard</button>
+                    <button class="btn-back" onclick="window.location.href='dashboard.php'">← Back to Dashboard</button>
                 <?php else: ?>
-                    <button class="btn-back" onclick="window.location.href='coach-dashboard.php'">← Back to Dashboard</button>
+                    <button class="btn-back" onclick="window.location.href='../coach/dashboard.php'">← Back to Dashboard</button>
                 <?php endif; ?>
-                <?php include 'includes/notification-bell.php'; ?>
+                <?php include '../../includes/notification-bell.php'; ?>
                 <div class="user-profile">
                     <div class="user-avatar"><?php echo $display_initials; ?></div>
                     <span class="user-name"><?php echo htmlspecialchars($user_name); ?></span>
@@ -151,7 +151,7 @@ $categories_result = mysqli_query($conn, $categories_query);
                                 <span class="status-badge <?php echo $status_class; ?>"><?php echo $concern['status']; ?></span>
                                 <div style="display: flex; align-items: center; gap: 15px;">
                                     <span class="response-count">💬 <?php echo $concern['response_count']; ?> response<?php echo $concern['response_count'] != 1 ? 's' : ''; ?></span>
-                                    <a href="view-public-concern.php?id=<?php echo $concern['tracking_id']; ?>" class="btn-view">View</a>
+                                    <a href="../shared/view-public-concern.php?id=<?php echo $concern['tracking_id']; ?>" class="btn-view">View</a>
                                 </div>
                             </div>
                         </div>
@@ -169,6 +169,6 @@ $categories_result = mysqli_query($conn, $categories_query);
     </div>
 
 
-    <script src="js/existing-concerns.js"></script>
+    <script src="../../js/existing-concerns.js"></script>
 </body>
 </html>

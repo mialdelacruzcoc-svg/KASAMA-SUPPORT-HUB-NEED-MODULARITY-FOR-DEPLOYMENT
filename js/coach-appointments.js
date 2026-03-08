@@ -23,7 +23,7 @@
         formData.append('status', status);
         
         try {
-            const response = await fetch('api/update-appointment-status.php', { method: 'POST', body: formData });
+            const response = await fetch('../../api/update-appointment-status.php', { method: 'POST', body: formData });
             const result = await response.json();
             
             if (result.success) {
@@ -80,7 +80,7 @@
         formData.append('message', message);
         
         try {
-            const response = await fetch('api/update-appointment-status.php', { method: 'POST', body: formData });
+            const response = await fetch('../../api/update-appointment-status.php', { method: 'POST', body: formData });
             const result = await response.json();
             
             if (result.success) {
