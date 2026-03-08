@@ -38,12 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password - Kasama Hub</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .password-wrapper { position: relative; width: 100%; }
-        .password-wrapper input { padding-right: 45px; }
-        .toggle-password { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; padding: 4px; color: #888; font-size: 18px; line-height: 1; display: flex; align-items: center; }
-        .toggle-password:hover { color: #333; }
-    </style>
+    <link rel="stylesheet" href="css/reset-password-styles.css">
+    
 </head>
 <body class="login-wrapper">
     <div class="login-container" style="max-width: 450px; padding: 30px;">
@@ -59,19 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <button type="submit" class="btn-signin">Update Password</button>
         </form>
     </div>
-    <script>
-    function togglePass(inputId, btn) {
-        const input = document.getElementById(inputId);
-        if (input.type === 'password') {
-            input.type = 'text';
-            btn.textContent = '🙈';
-            btn.title = 'Hide password';
-        } else {
-            input.type = 'password';
-            btn.textContent = '👁';
-            btn.title = 'Show password';
-        }
-    }
-    </script>
+
+    <script src="js/reset-password.js"></script>
 </body>
 </html>
